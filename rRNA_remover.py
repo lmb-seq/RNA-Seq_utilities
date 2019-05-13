@@ -1,4 +1,4 @@
-import os, subprocess, argparse, sys
+import os, argparse, sys
 
 current_path = os.path.realpath(__file__)
 current_path = os.path.join(current_path, 'cell_bio_util')
@@ -28,7 +28,7 @@ def check_directory(directory, check_type):
   if os.path.isdir(directory):
     return(directory)
   else:
-    raise Exception('Invalid --{0} location. Please ensure directory exists before proceeding:\n\t{1}'.format(check_type, directory))
+    util.critical('Invalid --{0} location. Please ensure directory exists before proceeding:\n\t{1}'.format(check_type, directory))
 
 
 def check_rRNA_library(rRNA_genome_path):
@@ -62,8 +62,7 @@ def check_rRNA_library(rRNA_genome_path):
     util.info('rRNA library path appears valid')
     return(rRNA_genome_path)
   else:
-    util.error('Unable to locate rRNA library (bt2 files) within specified rRNA_library path')
-    sys.exit()
+    util.critical('Unable to locate rRNA library (bt2 files) within specified rRNA_library path')
 
 
 def gzip_file_list(working_directory):
@@ -93,8 +92,8 @@ def gzip_file_list(working_directory):
       continue
 
   if len(list_files) == 0:
-    util.error('There are no gzipped fastq (FILENMAE.fq.gz) files within specified directory')
-    sys.exit()
+    util.critical('There are no gzipped fastq (FILENMAE.fq.gz) files within specified directory')
+  
   util.info('List of gzipped fastq files read into script')
 
   return(fastq_gz_files)
@@ -194,7 +193,7 @@ def rrna_removal(paired_reads, output_subdirectory):
 
     with open(os.path.join(os.sep, output_subdirectory, 'log_files', 'logs_{0}.txt'.format(entries)), 'w') as stdout_file:
       stdout_file.write('\n\nRead pair file prefix: {0}'.format(entries))
-      subprocess.run(command, stdout = stdout_file, stderr = stdout_file)
+      util.call(command, stdout = stdout_file, stderr = stdout_file)
 
     os.remove(os.path.join(output_subdirectory, 'ribo_aligns_{0}.sam'.format(entries))) # Need to delete these .sam files otherwise accumulation of many large files
 
