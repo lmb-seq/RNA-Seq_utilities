@@ -14,7 +14,7 @@ For Mario-Xeon, RNA-Seq utilities is located in:
 
 ## Running the scripts
 -----------------------------------------------
-### Removing ribosomal RNA from .fastaq files
+## Removing ribosomal RNA from .fastaq files
 The **rRNA_remover.py** script will achieve this. In the terminal, simply run:  
 > python3 /data2/utilities/RNA-Seq_utilities/rRNA_remover.py  
 
@@ -40,7 +40,7 @@ space separated pair tags, this will be the same as PRAGUI's "`pair_tags`" argum
 #### Example
 > **python3** /data2/utilities/RNA-Seq_utilities/rRNA_remover.py **-d** /scratch/gurpreet/data/ **-l** /scratch/ribosomal_rna/worm/c_elegans_concat_rDNA.fa **-p** r_1 r_2
 -----------------------------------------------
-### Merging RNA-Seq data into one file per lane
+## Merging RNA-Seq data into one file per lane
 The **rna_seq_lane_merger.py** script will achieve this. In the terminal, simply run:
 > python3 /data2/utilities/RNA-Seq_utilities/rna_seq_lane_merger.py
 
@@ -62,7 +62,7 @@ space separated pair tags, this will be the same as PRAGUI's "pair_tags" argumen
 #### Example
 > **python3** /data2/utilities/RNA-Seq_utilities/rna_seq_lane_merger.py **-f** /scratch/gurpreet/rna_seq_data/CRUKCI_SLX_Submission.xlsx **-l** s_1 s_2 **-p** r_1 r_2
 -----------------------------------------------
-### Calculating mean and standard deviation of the TPM values
+## Calculating mean and standard deviation of the TPM values
 The **tpm_standard_deviation_mean_calculator.py** script will achieve this. In the terminal, simply run:
 > python3 /data2/utilities/RNA-Seq_utilities/tpm_standard_deviation_mean_calculator.py
 
