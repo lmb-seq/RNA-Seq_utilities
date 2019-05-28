@@ -26,7 +26,7 @@ show this help message and exit
 `-d` &lt;DIRECTORY&gt;, `--directory` &lt;DIRECTORY&gt;  
 Specify the location of the RNA-Seq data
 
-`-l' &lt;FILE&gt;, `--rRNA_library` &lt;FILE&gt;  
+`-l` &lt;FILE&gt;, `--rRNA_library` &lt;FILE&gt;  
 Specify location of the rRNA genome library. i.e. path to the **.fa file**. Default is the _C. elegans_ library.
 
 `-s`, `--single_end`  
