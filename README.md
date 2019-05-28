@@ -24,16 +24,16 @@ with the following arguments:
 `-h`, `--help`  
 show this help message and exit
   
-`-d` &lt;DIRECTORY&gt;, `--directory` &lt;DIRECTORY&gt;  
+`-d`, `--directory` &lt;directory&gt;  
 Specify the location of the RNA-Seq data
 
-`-l` &lt;FILE&gt;, `--rRNA_library` &lt;FILE&gt;  
+`-l`, `--rRNA_library` &lt;file&gt;  
 Specify location of the rRNA genome library. i.e. path to the **.fa file**. Default is the _C. elegans_ library.
 
 `-s`, `--single_end`  
 Flag if RNA-Seq data are single end reads. Mutually exclusive with the `-p` / `--paired_end` argument. 
  
-`-p` &lt;PAIR_TAG&gt; &lt;PAIR_TAG&gt;, `--paired_end` &lt;PAIR_TAG&gt; &lt;PAIR_TAG&gt;   
+`-p`, `--paired_end` &lt;pair_tag&gt; &lt;pair_tag&gt;   
 Flag if RNA-Seq data are paired end reads. Mutually exclusive with the `-s` / `--single_end` argument. Provide 
 pair tags, this will be the same as PRAGUI's "`pair_tags`" argument (e.g. `r_1 r_2`).
 
@@ -41,12 +41,12 @@ pair tags, this will be the same as PRAGUI's "`pair_tags`" argument (e.g. `r_1 r
 > **python3** /data2/utilities/RNA-Seq_utilities/rRNA_remover.py **-d** /scratch/gurpreet/data/ **-l** /scratch/ribosomal_rna/worm/c_elegans_concat_rDNA.fa **-p** r_1 r_2
 -----------------------------------------------
 ### Merging RNA-Seq data into one file per lane
-THe **rna_seq_lane_merger.py** script will achieve this. In the terminal, simply run:
+The **rna_seq_lane_merger.py** script will achieve this. In the terminal, simply run:
 > python3 /data2/utilities/RNA-Seq_utilities/rna_seq_lane_merger.py
 
 with the following arguments:
 
-`-f`, `--submission_form` &lt;FILE&gt;
+`-f`, `--submission_form` &lt;file&gt;
 Path to the submission form provided (e.g. CRUKCI_SLX_Submission.xlsx) - Please provide full path and ensure this file is in same folder as the RNA-Seq files.
 
 `-l`, `--lane_tags` &lt;lane_tag&gt; &lt;lane_tag&gt;
@@ -55,9 +55,20 @@ Tags that identify samples' RNA-Seq lanes e.g. `s_1 s_2`.
 `-s`, `--single_end`
 Flag if RNA-Seq data are single end reads. Mutually exclusive with the `-p` / `--paired_end` argument.
 
-`-p` &lt;PAIR_TAG&gt; &lt;PAIR_TAG&gt;, `--paired_end` &lt;PAIR_TAG&gt; &lt;PAIR_TAG&gt;
+`-p`, `--paired_end` &lt;pair_tag&gt; &lt;pair_tag&gt;
 Flag if RNA-Seq data are paired end reads. Mutually exclusive with the `-s` / `--single_end` argument. Provide pair tags, this will be the same as PRAGUI's "pair_tags" argument.
 
 #### Example
 > **python3** /data2/utilities/RNA-Seq_utilities/rna_seq_lane_merger.py **-f** /scratch/gurpreet/rna_seq_data/CRUKCI_SLX_Submission.xlsx **-l** s_1 s_2 **-p** r_1 r_2
+-----------------------------------------------
+### Calculating mean and standard deviation of the TPM values
+The **tpm_standard_deviation_mean_calculator.py** script will achieve this. In the terminal, simply run:
+> python3 /data2/utilities/RNA-Seq_utilities/tpm_standard_deviation_mean_calculator.py
+
+with the following arguments:
+
+`-t`, `--tpm_file` &lt;file&gt;
+Full path for the tpm.txt file of interest (often uses "samples.csv_tpm.txt" filename - where "samples.csv" refers to PRAGUI's input csv file). 
+#### Example
+> **python3** /data2/utilities/RNA-Seq_utilities/tpm_standard_deviation_mean_calculator.py **-t** /scratch/gurpreet/rna_seq_data/samples.csv_tpm.txt
 -----------------------------------------------
