@@ -20,10 +20,10 @@ The `rRNA_remover.py` script will achieve this. In the terminal, simply run:
 with the following arguments:
 
 
--h, - -help  
+-h, --help  
 show this help message and exit
   
--d &lt;DIRECTORY&gt;, - -directory &lt;DIRECTORY&gt;  
+-d &lt;DIRECTORY&gt;, --directory &lt;DIRECTORY&gt;  
 Specify the location of the RNA-Seq data
 
 -l &lt;FILE&gt;, --rRNA_library &lt;FILE&gt;  
