@@ -242,6 +242,7 @@ if __name__ == '__main__':
                       type = str,
                       required = True,
                       nargs = '+',
+                      metavar = 'lane_tag',
                       help = 'Tags that identify samples\' RNA-Seq lanes e.g. "s_1 s_2".')
 
   group = parser.add_mutually_exclusive_group(required = True) # Sets --single_end and --paired_end as mutually exclusive arguments
