@@ -10,7 +10,7 @@ to be installed next to the directory holding this project. In the case of MRC-L
 Mario-Xeon machine, this has already been done.
 
 For Mario-Xeon, RNA-Seq utilities is located in:  
-    /data2/utilities/RNA-Seq_utilities/
+> /data2/utilities/RNA-Seq_utilities/
 
 ## Running the scripts
 ### Removing ribosomal RNA from .fastaq files
@@ -34,4 +34,4 @@ Flag if RNA-Seq data are single end reads. Mutually exclusive with the `-p`/`--p
  
 `-p <PAIR_TAG> <PAIR_TAG>`, `--paired_end <PAIR_TAG> <PAIR_TAG>`  
 Flag if RNA-Seq data are paired end reads. Mutually exclusive with the `-s`/`--single_end` argument. Provide 
-pair tags, this will be the same as PRAGUI's "`pair_tags`" argument.
+pair tags, this will be the same as PRAGUI's "`pair_tags`" argument (e.g. `r_1 r_2`).
