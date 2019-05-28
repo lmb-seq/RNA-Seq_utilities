@@ -206,7 +206,7 @@ if __name__ == '__main__':
                         type = str,
                         required = True,
                         metavar = 'FILENAME',
-                        help = 'Full path for the samples.csv file of interest')
+                        help = 'Full path for the tpm.txt file of interest')
 
   user_args = parser.parse_args()
   tpm_file_path = check_file(user_args.tpm_file)
