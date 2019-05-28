@@ -27,7 +27,7 @@ show this help message and exit
 Specify the location of the RNA-Seq data
 
 `-l <FILE>`, `--rRNA_library <FILE>`  
-Specify location of the rRNA genome library. i.e. path to the .fa file. Default is the C. elegans library.
+Specify location of the rRNA genome library. i.e. path to the *.fa file*. Default is the _C. elegans_ library.
 
 `-s`, `--single_end`  
 Flag if RNA-Seq data are single end reads. Mutually exclusive with the `-p`/`--paired_end` argument. 
