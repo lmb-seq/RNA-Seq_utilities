@@ -37,4 +37,4 @@ Flag if RNA-Seq data are paired end reads. Mutually exclusive with the `-s`/`--s
 pair tags, this will be the same as PRAGUI's "`pair_tags`" argument (e.g. `r_1 r_2`).
 
 ## Example
-> python3 /data2/utilities/RNA-Seq_utilities/rRNA_remover.py -d /scratch/gurpreet/data/ -l /scratch/ribosomal_rna/worm/c_elegans_concat_rDNA.fa -p r_1 r_2
+> **python3** /data2/utilities/RNA-Seq_utilities/rRNA_remover.py **-d** /scratch/gurpreet/data/ **-l** /scratch/ribosomal_rna/worm/c_elegans_concat_rDNA.fa **-p** r_1 r_2
