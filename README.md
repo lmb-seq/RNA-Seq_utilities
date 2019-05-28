@@ -20,18 +20,18 @@ The `rRNA_remover.py` script will achieve this. In the terminal, simply run:
 with the following arguments:
 
 
--h, --help  
+`-h`, `--help`  
 show this help message and exit
   
--d &lt;DIRECTORY&gt;, --directory &lt;DIRECTORY&gt;  
+`-d &lt;DIRECTORY&gt;`, `--directory &lt;DIRECTORY&gt;`  
 Specify the location of the RNA-Seq data
 
--l &lt;FILE&gt;, --rRNA_library &lt;FILE&gt;  
+`-l &lt;FILE&gt;`, `--rRNA_library &lt;FILE&gt;`  
 Specify location of the rRNA genome library. i.e. path to the .fa file. Default is the C. elegans library.
 
--s, --single_end  
-Flag if RNA-Seq data are single end reads. Mutually exclusive with the -p/--paired_end argument. 
+`-s`, `--single_end`  
+Flag if RNA-Seq data are single end reads. Mutually exclusive with the `-p`/`--paired_end` argument. 
  
--p &lt;PAIR_TAG&gt; &lt;PAIR_TAG&gt;, --paired_end &lt;PAIR_TAG&gt; &lt;PAIR_TAG&gt;  
-Flag if RNA-Seq data are paired end reads. Mutually exclusive with the -s/--single_end argument. Provide 
-pair tags, this will be the same as PRAGUI's "pair_tags" argument.
+`-p &lt;PAIR_TAG&gt; &lt;PAIR_TAG&gt;`, `--paired_end &lt;PAIR_TAG&gt; &lt;PAIR_TAG&gt;`  
+Flag if RNA-Seq data are paired end reads. Mutually exclusive with the `-s`/`--single_end` argument. Provide 
+pair tags, this will be the same as PRAGUI's "`pair_tags`" argument.
