@@ -15,7 +15,7 @@ For Mario-Xeon, RNA-Seq utilities is located in:
 ## Running the scripts
 ### Removing ribosomal RNA from .fastaq files
 The `rRNA_remover.py` script will achieve this. In the terminal, simply run:  
-    python3 /data2/utilities/RNA-Seq_utilities/rRNA_remover.py  
+> python3 /data2/utilities/RNA-Seq_utilities/rRNA_remover.py  
 
 with the following arguments:
 
