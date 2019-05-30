@@ -1,4 +1,9 @@
-import os, argparse
+import os, argparse, sys
+
+module_path = os.path.realpath(__file__)
+utilities_directory = os.path.dirname(module_path)
+sys.path.append(utilities_directory)
+
 from cell_bio_util import cell_bio_util as util
 
 
@@ -20,8 +25,10 @@ def check_directory(directory, check_type):
   
   '''
 
-  if os.path.isdir(directory):
-    return(directory)
+  directory_absolute_path = os.path.abspath(directory)
+
+  if os.path.isdir(directory_absolute_path):
+    return(directory_absolute_path)
   else:
     util.critical('Invalid --{0} location. Please ensure directory exists before proceeding:\n\t{1}'.format(check_type, directory))
 
