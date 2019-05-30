@@ -43,7 +43,8 @@ def working_directory_finder(samples_tpm_path):
   
   '''
 
-  working_directory, tpm_file_name = os.path.split(samples_tpm_path)
+  absolute_path = os.path.abspath(samples_tpm_path)
+  working_directory, tpm_file_name = os.path.split(absolute_path)
   return(working_directory, tpm_file_name)
 
 
