@@ -65,3 +65,20 @@ with the following arguments:
 > **python3** /data2/utilities/RNA-Seq_utilities/tpm_standard_deviation_mean_calculator.py **-t** /scratch/gurpreet/rna_seq_data/samples.csv_tpm.txt
 
 -----------------------------------------------
+
+## Downloading your files from the CRUK FTP server
+The **cruk_downloader.py** script will achieve this. In the terminal, simply run:
+> python3 /data2/utilities/RNA-Seq_utilities/cruk_downloader.py
+
+with the following arguments:
+
+| Flag                            	|  Description                                                                                                                                    	|
+|---------------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------	|
+| `-f`, `--submission_form` &lt;file&gt; 	| Full path to the submission form (e.g. CRUKCI_SLX_Submission.xlsx) - Please ensure this file is in same folder as where you wish to download the RNA-Seq files to. 	|
+
+This script reads in the CRUKCI_SLX_Submission.xlsx form and automatically retrieves the SLX ID and list of your files with which it will download to a directory of your choosing.
+
+#### Example
+> **python3** /data2/utilities/RNA-Seq_utilities/cruk_downloader.py **-f** /scratch/gurpreet/rna_seq_data/CRUKCI_SLX_Submission.xlsx
+
+-----------------------------------------------
