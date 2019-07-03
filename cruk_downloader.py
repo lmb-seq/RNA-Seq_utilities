@@ -65,7 +65,10 @@ def glob_lister(submission_form):
   util.info('Index file read')
   slx_id_raw = excel_file[excel_file[1] == 'SLX Identifier']
   slx_row = slx_id_raw.index[0]
-  slx_id = 'SLX-{0}'.format(excel_file.iloc[slx_row]['Unnamed: 2'])
+  if excel_file.iloc[slx_row]['Unnamed: 2'].startswith('SLX-'):
+    slx_id = excel_file.iloc[slx_row]['Unnamed: 2']
+  else:
+    slx_id = 'SLX-{0}'.format(excel_file.iloc[slx_row]['Unnamed: 2'])
 
   excel_file_find_start = excel_file[excel_file[1] == 'Name']
   excel_file_start = int(excel_file_find_start.index[0]) + 1
@@ -76,20 +79,20 @@ def glob_lister(submission_form):
   return(samples_information, slx_id)
 
 
-def ftp_server_connection():
+def ftp_server_connection(username, password):
   ''' Establishes connection to the CRUK FTP server.
   This version uses the de Bono lab's user log credentials
   
   Returns
   -------
-  ftp_server (ftblib object):
+  ftp_server (ftplib object):
   
   '''
 
   ftp_server_url = 'ftp1.cruk.cam.ac.uk'
   util.info('Accessing FTP server {0}'.format(ftp_server_url))
   ftp_server = ftplib.FTP(ftp_server_url)
-  ftp_server.login(user = 'lmb_debono', passwd = 'shiphill50')
+  ftp_server.login(user = username, passwd = password)
   util.info('Logged into FTP server')
 
   return(ftp_server)
@@ -248,13 +251,16 @@ if __name__ == '__main__':
                       metavar = 'FILENAME',
                       help = 'Path to the submission form (e.g. CRUKCI_SLX_Submission.xlsx) - Please provide full path and ensure this file is in same folder as where you wish to download the RNA-Seq files to.')
 
+  ftp_username = input('Enter FTP server\'s username: ')
+  ftp_password = input('Enter FTP server\'s password: ')
+
   args = parser.parse_args()
 
   working_directory = os.path.abspath(os.path.split(args.submission_form)[0])
   directory_check = check_directory(working_directory, 'working_directory')
 
   samples_information, slx_id = glob_lister(os.path.abspath(args.submission_form))
-  ftp_server = ftp_server_connection()
+  ftp_server = ftp_server_connection(ftp_username, ftp_password)
   downloaded_files = ftp_download_files(ftp_server, slx_id)
   ftp_server.quit()
 
@@ -269,4 +275,4 @@ if __name__ == '__main__':
 
   samples_csv_writer(working_directory, slx_id, samples_information)
 
-  util.info('\nrun complete')
+  util.info('Run complete')
